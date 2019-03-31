@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Les algorithmes de tri : le tri par selection</title>
+
+    </head>
+    <body>
+
+        <main>
+            <h2>Selection Sort</h2>
+        </main>
+        <header>
+                <ul>
+                    
+                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif">
+    
+        </header>
+    
+        <footer>Antoine Cabon - antoinecabon3@gmail.com</footer>
+
+        <script>
+
+                let listTag = document.querySelector(`ul`);
+                let data = [6, 1, 12, 0, 25, 7, 29, 3, 45];
+                let bigData = [6, 1, 12, 0, 25, 7, 29, 3, 45, 9, 65, 2, 22,1 ,87, 30, 16, 5, 14, 67, 56, 8];
+                let min = undefined;
+                let sorted = false;
+                let step = 0;
+
+                const selectSort = (collection) => {
+                    console.log('antoinecabon3@gmail.com')
+                    console.log('collection : ' + collection)   
+                    listTag.innerHTML += `<li>Original Data : [${collection}]</li>`  
+
+                    for (let i = 0; i < collection.length; i++) {
+                        
+                        var first_array = collection.slice(0,i+1)
+
+                        var lowest =  first_array.slice(first_array.length-1,first_array.length)
+
+                        var position = 0
+
+                        var second_array = collection.slice(i+1)
+
+                        for ( let j = 0; j < second_array.length; j++ ) {
+
+                             if (lowest > second_array[j]) {
+
+                                var clone = second_array.slice(0)
+
+                                second_array.splice(j,1)
+                                
+                                second_array.splice(position, 0, lowest)
+
+                                first_array.splice(first_array.length-1,1)
+
+                                lowest = clone[j]
+                        
+                                first_array.push(lowest)
+
+                                var position = j 
+
+                            }
+                        }
+                        
+                        var collection = first_array.concat(second_array)
+
+                    }
+
+                    console.log('collection: ' +collection)
+                    listTag.innerHTML += `<li>Sorted Data : [${collection}]</li>`
+                    
+                };
+
+
+                document.addEventListener( "DOMContentLoaded", (event) => selectSort(bigData));
+            
+        </script>
+    </body>
+</html>

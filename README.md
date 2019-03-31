@@ -1,10 +1,7 @@
-# tri_par_selection
-
-
-
+# Selection Sort
 
 # tri_par_selection
 
 
 
-##JavaScript 
+#antoinecabon3@gmail.com
